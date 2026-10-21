@@ -130,17 +130,19 @@ h2{font:700 clamp(1.7rem,4vw,2.4rem)/1.15 var(--head);letter-spacing:-.02em;marg
 .pad{padding:26px}
 .pad h3{font:700 1.15rem var(--head);margin:0 0 10px}
 .pad p{margin:0 0 6px;color:var(--muted)}
-.cn{padding:0}
-.cn .hd{display:flex;gap:7px;padding:12px 16px;background:var(--panel2);border-bottom:1px solid var(--line)}
-.cn .hd i{width:11px;height:11px;border-radius:50%;background:#33415f}
-.cn .bd2{padding:28px;font:1rem/2 var(--mono)}
-.cn .bd2 .g{color:var(--vi)}
-.cn .bd2 .m{color:var(--muted)}
-.cn h2{margin:0 0 18px}
+.cx{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding:44px;align-items:center}
+.cx h2{margin:0 0 12px}
+.cx .sub{color:var(--muted);margin:0 0 26px;max-width:42ch}
+.cl{display:grid;gap:12px}
+.ct{display:flex;align-items:center;gap:16px;padding:14px 16px;background:var(--panel2);border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s,background .2s}
+.ct:hover{border-color:var(--cy);background:rgba(34,211,238,.07);transform:translateX(5px)}
+.ci{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(34,211,238,.12);color:var(--cy);border:1px solid rgba(34,211,238,.3)}
+.ci svg{width:22px;height:22px}
+.cv{font-weight:500;min-width:0;overflow-wrap:anywhere}
 footer{position:relative;z-index:1;text-align:center;padding:30px 0 50px;color:var(--muted);font:.85rem var(--mono)}
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--cy);color:#04141A;padding:10px 18px;border-radius:10px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:99}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-@media (max-width:900px){.grid3,.two,.skl,.badges{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.rs{grid-column:1/-1}.zone{--r:84px}}
+@media (max-width:900px){.cx{grid-template-columns:1fr;gap:28px}.grid3,.two,.skl,.badges{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.rs{grid-column:1/-1}.zone{--r:84px}}
 @media (max-width:820px){
 .menu{display:block}
 nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:2px;padding:10px 20px 16px;background:rgba(6,10,19,.98);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
@@ -148,7 +150,7 @@ nav.open{opacity:1;visibility:visible;transform:none}
 nav a{padding:13px 14px;font-size:1.02rem}
 nav a::after{left:14px;right:auto;width:22px;bottom:8px}
 }
-@media (max-width:600px){section{padding:50px 0}.hero{padding-top:40px}.cn .bd2{padding:20px;font-size:.88rem}.zone{cursor:auto}}
+@media (max-width:600px){section{padding:50px 0}.hero{padding-top:40px}.cx{padding:26px}.zone{cursor:auto}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -171,7 +173,7 @@ nav a::after{left:14px;right:auto;width:22px;bottom:8px}
   <p class="hint">// move the lens over my name to inspect what’s underneath</p>
   <p class="term" aria-live="off"><span class="p">$ whoami →</span> <span id="typed"></span><span class="c"></span></p>
   <p class="lead">B.Tech student in Artificial Intelligence and Data Science. I build full-stack applications in Python and Django, and I train machine learning models to detect threats, so the software I ship is both intelligent and secure.</p>
-  <div class="cta"><a class="btn pri" href="#projects">Explore my work</a><a class="btn gh" href="#contact">Contact me</a><a class="btn gh" href="https://drive.google.com/file/d/1BbmwjTCWVZYyclEyc3wBy9sxPhoJqI8n/view?usp=drive_link" target="_blank" rel="noopener">View resume</a></div>
+  <div class="cta"><a class="btn pri" href="#projects">Explore my work</a><a class="btn gh" href="#contact">Contact me</a></div>
 </div>
 
 <section id="about"><div class="wrap about">
@@ -181,7 +183,6 @@ nav a::after{left:14px;right:auto;width:22px;bottom:8px}
   <div class="stats">
     <div class="card stat rv"><b data-n="3">0</b><span>AI and security projects</span></div>
     <div class="card stat rv"><b data-n="5">0</b><span>Certifications</span></div>
-    
 </div></section>
 
 <section id="projects"><div class="wrap">
@@ -208,7 +209,9 @@ nav a::after{left:14px;right:auto;width:22px;bottom:8px}
       <button class="ins" type="button" aria-expanded="false">⌕ Inspect pipeline</button>
       <div class="pan"><div><div class="flow"><span>Secret message</span><i>↓</i><span>Hybrid LSB-DCT embedding</span><i>↓</i><span class="ok">Secure extraction</span></div></div></div>
     </article>
-  </section>
+  </div>
+  <p class="cap" style="margin-top:22px">// source code lives on <a href="https://github.com/sundarimuthusamy2020-lang/projects" rel="noopener">github.com/sundarimuthusamy2020</a></p>
+</div></section>
 
 <section id="skills"><div class="wrap">
   <span class="k">03 // CAPABILITIES</span><h2>Skills</h2>
@@ -245,15 +248,17 @@ nav a::after{left:14px;right:auto;width:22px;bottom:8px}
 
 <section id="contact"><div class="wrap">
   <span class="k">05 // CONTACT</span>
-  <div class="card cn rv" style="margin-top:14px">
-    <div class="hd"><i></i><i></i><i></i></div>
-    <div class="bd2">
+  <div class="card cx rv" style="margin-top:14px">
+    <div>
       <h2>Let’s build something secure.</h2>
-      <div><span class="g">$</span> <span class="m">email</span> → <a href="mailto:sundarimuthusamy2020@gmail.com">sundarimuthusamy2020@gmail.com</a></div>
-      <div><span class="g">$</span> <span class="m">phone</span> → <a href="tel:+916382466295">+91 63824 66295</a></div>
-      <div><span class="g">$</span> <span class="m">github</span> → <a href="https://github.com/sundarimuthusamy2020-lang" rel="noopener">sundarimuthusamy2020</a></div>
-      <div><span class="g">$</span> <span class="m">linkedin</span> → <a href="https://www.linkedin.com/in/sundarimuthusamy" rel="noopener">sundarimuthusamy</a></div>
-      <div class="cta" style="margin-top:18px"><a class="btn pri" href="mailto:sundarimuthusamy2020@gmail.com">Send an email</a><button class="btn gh" id="copy" type="button">Copy email</button></div>
+      <p class="sub">Open to software developer roles. Reach out through any channel, or grab my resume.</p>
+      <div class="cta"><a class="btn pri" href="mailto:sundarimuthusamy2020@gmail.com">Send an email</a><button class="btn gh" id="copy" type="button">Copy email</button><a class="btn gh" href="https://drive.google.com/file/d/1BbmwjTCWVZYyclEyc3wBy9sxPhoJqI8n/view?usp=drive_link">View resume</a></div>
+    </div>
+    <div class="cl">
+      <a class="ct" href="mailto:sundarimuthusamy2020@gmail.com" aria-label="Email: sundarimuthusamy2020@gmail.com"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="cv">sundarimuthusamy2020@gmail.com</span></a>
+      <a class="ct" href="tel:+916382466295" aria-label="Phone: +91 63824 66295"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span class="cv">+91 63824 66295</span></a>
+      <a class="ct" href="https://github.com/sundarimuthusamy2020-lang" target="_blank" rel="noopener" aria-label="GitHub: sundarimuthusamy2020"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></span><span class="cv">sundarimuthusamy2020</span></a>
+      <a class="ct" href="https://www.linkedin.com/in/sundarimuthusamy" target="_blank" rel="noopener" aria-label="LinkedIn: sundarimuthusamy"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></span><span class="cv">sundarimuthusamy</span></a>
     </div>
   </div>
 </div></section>
